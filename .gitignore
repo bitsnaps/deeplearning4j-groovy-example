@@ -1,0 +1,10 @@
+*.swp
+*.log
+*.bak
+*.dump
+core
+
+/.groovy/
+/.local/
+/.gradle/
+/build/

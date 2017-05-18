@@ -1,0 +1,37 @@
+apply plugin: 'groovy'
+
+task wrapper(type:Wrapper){
+  gradleVersion = '3.5'
+}
+
+group = 'jp.eiya'
+version = '0.0.1'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+compileJava {
+  options.compilerArgs << '-parameters'
+}
+compileGroovy {
+  options.compilerArgs << '-parameters'
+}
+
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+}
+
+dependencies {
+  compile 'org.deeplearning4j:deeplearning4j-core:latest.release'
+  compile 'org.bytedeco:javacpp:latest.release'
+  compile 'org.nd4j:nd4j-native-platform:latest.release'
+  compile 'org.nd4j:canova-api:latest.release'
+  compile 'org.codehaus.groovy:groovy-all:latest.release'
+  compile 'org.codehaus.gpars:gpars:latest.release'
+  compile 'org.jfree:jfreechart:latest.release'
+}
+
+task runStep1(dependsOn:'classes', type:JavaExec){
+  classpath sourceSets.main.runtimeClasspath
+  main 'jp.eiya.dl4j.step1.Runner'
+}
