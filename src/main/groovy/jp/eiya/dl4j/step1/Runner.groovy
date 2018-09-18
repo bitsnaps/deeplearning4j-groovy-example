@@ -3,8 +3,8 @@ package jp.eiya.dl4j.step1
 import static jp.eiya.dl4j.step1.MLPClassifierLinear.createDataSet as ds
 
 def dataDir = './data/step1'
-def trainFile = dataDir+'/train_0101.csv'
-def evalFile = dataDir+'/eval_0101.csv'
+def trainFile = "${dataDir}/train_0101.csv"
+def evalFile = "${dataDir}/eval_0101.csv"
 
 def classifier = new MLPClassifierLinear()
 
@@ -17,4 +17,3 @@ new Plotter(model).plot(
   ds(trainFile,1000).next(),
   ds( evalFile, 500).next()
 )
-
