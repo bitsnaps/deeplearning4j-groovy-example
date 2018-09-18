@@ -8,6 +8,17 @@ group = 'jp.eiya'
 version = '0.0.1'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+
+buildscript {
+    ext {
+        dl4j_version = "1.0.0-beta"
+        //dl4j_version = "0.9.1" // lastest stable as for today
+    }
+    repositories {
+        mavenCentral()
+    }
+}
+
 compileJava {
   options.compilerArgs << '-parameters'
 }
@@ -15,23 +26,24 @@ compileGroovy {
   options.compilerArgs << '-parameters'
 }
 
-
 repositories {
   mavenLocal()
   mavenCentral()
 }
 
 dependencies {
-  compile 'org.deeplearning4j:deeplearning4j-core:latest.release'
-  compile 'org.bytedeco:javacpp:latest.release'
-  compile 'org.nd4j:nd4j-native-platform:latest.release'
-  compile 'org.nd4j:canova-api:latest.release'
-  compile 'org.codehaus.groovy:groovy-all:latest.release'
-  compile 'org.codehaus.gpars:gpars:latest.release'
-  compile 'org.jfree:jfreechart:latest.release'
+  compile 'org.slf4j:slf4j-api:latest.release'// tested with 1.7.25
+  compile 'org.slf4j:slf4j-simple:latest.release'// tested with 1.7.25
+  compile "org.deeplearning4j:deeplearning4j-core:${dl4j_version}"
+  //compile 'org.bytedeco:javacpp:latest.release'
+  compile "org.nd4j:nd4j-native-platform:${dl4j_version}"
+  //compile 'org.nd4j:canova-api:latest.release'
+  compile 'org.codehaus.groovy:groovy-all:latest.release'// tested with 2.5.1
+  //compile 'org.codehaus.gpars:gpars:latest.release'
+  compile 'org.jfree:jfreechart:latest.release'// tested with 1.5.0
 }
 
-task runStep1(dependsOn:'classes', type:JavaExec){
-  classpath sourceSets.main.runtimeClasspath
+task runStep1(dependsOn:'classes', type: JavaExec){
   main 'jp.eiya.dl4j.step1.Runner'
+  classpath sourceSets.main.runtimeClasspath
 }
