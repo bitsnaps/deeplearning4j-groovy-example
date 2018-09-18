@@ -4,6 +4,7 @@ import org.nd4j.linalg.factory.Nd4j
 
 class Plotter {
 
+
   static window = [
      axis : ['x','y'],
      size : 100,
