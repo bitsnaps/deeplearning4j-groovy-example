@@ -2,7 +2,7 @@
 package jp.eiya.dl4j.step1;
 
 import org.jfree.chart.ChartPanel;
-import org.jfree.chart.ChartUtilities;
+//import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.AxisLocation;
 import org.jfree.chart.axis.NumberAxis;
@@ -15,8 +15,8 @@ import org.jfree.chart.renderer.xy.XYBlockRenderer;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.chart.title.PaintScaleLegend;
 import org.jfree.data.xy.*;
-import org.jfree.ui.RectangleEdge;
-import org.jfree.ui.RectangleInsets;
+//import org.jfree.ui.RectangleEdge;
+//import org.jfree.ui.RectangleInsets;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.api.ops.impl.indexaccum.IMax;
 import org.nd4j.linalg.factory.Nd4j;
@@ -162,7 +162,7 @@ public class PlotUtil {
         plot.setBackgroundPaint(Color.lightGray);
         plot.setDomainGridlinesVisible(false);
         plot.setRangeGridlinesVisible(false);
-        plot.setAxisOffset(new RectangleInsets(5, 5, 5, 5));
+        //plot.setAxisOffset(new RectangleInsets(5, 5, 5, 5));
         JFreeChart chart = new JFreeChart("", plot);
         chart.getXYPlot().getRenderer().setSeriesVisibleInLegend(0, false);
 
@@ -177,18 +177,18 @@ public class PlotUtil {
         legend.setSubdivisionCount(20);
         legend.setAxisLocation(AxisLocation.BOTTOM_OR_LEFT);
         legend.setAxisOffset(5.0);
-        legend.setMargin(new RectangleInsets(5, 5, 5, 5));
+//        legend.setMargin(new RectangleInsets(5, 5, 5, 5));
         legend.setFrame(new BlockBorder(Color.red));
-        legend.setPadding(new RectangleInsets(10, 10, 10, 10));
+        //legend.setPadding(new RectangleInsets(10, 10, 10, 10));
         legend.setStripWidth(10);
-        legend.setPosition(RectangleEdge.LEFT);
+//        legend.setPosition(RectangleEdge.LEFT);
         chart.addSubtitle(legend);
 
-        ChartUtilities.applyCurrentTheme(chart);
+        //ChartUtilities.applyCurrentTheme(chart);
 
         plot.setDataset(1, xyData);
         XYLineAndShapeRenderer renderer2 = new XYLineAndShapeRenderer();
-        renderer2.setBaseLinesVisible(false);
+        //renderer2.setBaseLinesVisible(false);
         plot.setRenderer(1, renderer2);
 
         plot.setDatasetRenderingOrder(DatasetRenderingOrder.FORWARD);
